@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stddef.h>
 
 /**
  * _printf - produces output according to a format
@@ -13,11 +14,12 @@ int _printf(const char *format, ...)
 	int print_count = 0;
 	va_list list;
 
-	ops_t func_spec[] = {
+	ops_t func_list[] = {
 		{'c', _printChar},
 		{'s', _printStr},
 		{'%', _printPercent},
 	};
+
 	va_start(list, format);
 
 	while (*format)
@@ -25,17 +27,18 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			while (func_spec[i].spec)
+
+			while (func_list[i].spec)
 			{
-				if (func_spec[i].spec == *format)
-					func_spec[i].func(list);
+				if (*format == func_list[i].spec)
+					print_count += func_list[i].f(list);
 				i++;
 			}
 			i = 0;
 		}
 		else
 		{
-			_putchar(*format);
+			_putchar(format[i]);
 			print_count++;
 		}
 		format++;
