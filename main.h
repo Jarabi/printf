@@ -4,15 +4,15 @@
 /**
  * operators - Represents a format specifier function
  */
-/*typedef struct operators
+typedef struct operators
 {
 	char spec;
 	int (*func)(va_list);
-} ops;*/
+} ops_t;
 
-/*int _printChar(va_list list);
+int _printChar(va_list list);
 int _printStr(va_list list);
-int _printPercent(void);*/
+int _printPercent();
 
 int _printf(const char *format, ...);
 int _putchar(char c);

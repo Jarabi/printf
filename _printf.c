@@ -10,31 +10,36 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
+	int print_count = 0;
 	va_list list;
 
+	ops_t func_spec[] = {
+		{'c', _printChar},
+		{'s', _printStr},
+		{'%', _printPercent},
+	};
 	va_start(list, format);
 
-	for (; format[i] != '\0'; i++)
+	while (*format)
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			i++;
-			switch (format[i])
+			format++;
+			while (func_spec[i].spec)
 			{
-				case 'c':
-					_putchar(va_arg(list, int));
-					break;
-				case 's':
-					_puts(va_arg(list, char*));
-					break;
-				case '%':
-					_putchar('%');
-					break;
+				if (func_spec[i].spec == *format)
+					func_spec[i].func(list);
+				i++;
 			}
+			i = 0;
 		}
 		else
-			_putchar(format[i]);
+		{
+			_putchar(*format);
+			print_count++;
+		}
+		format++;
 	}
 	va_end(list);
-	return (0);
+	return (print_count);
 }
