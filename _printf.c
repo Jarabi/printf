@@ -19,9 +19,10 @@ int _printf(const char *format, ...)
 		{'%', print_percent},
 		{'i', print_integer},
 		{'d', print_decimal},
+		{'b', print_binary}
 	};
 
-	if (!*format)
+	if (format == NULL)
 		return (-1);
 
 	va_start(list, format);
