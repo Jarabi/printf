@@ -15,12 +15,15 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	ops_t func_list[] = {
-		{'c', _printChar},
-		{'s', _printStr},
-		{'%', _printPercent},
-		{'i', _printInteger},
-		{'d', _printDeci},
+		{'c', print_char},
+		{'s', print_str},
+		{'%', print_percent},
+		{'i', print_integer},
+		{'d', print_decimal},
 	};
+
+	if (!*format)
+		return (-1);
 
 	va_start(list, format);
 

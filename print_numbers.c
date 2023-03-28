@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_num - prints a number send to this function
+ * print_number - prints a number send to this function
  * @list: List of arguments
  * Return: The number of arguments printed
  */
-int print_num(va_list list)
+int print_number(va_list list)
 {
 	int n;
 	int div;

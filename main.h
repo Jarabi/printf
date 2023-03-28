@@ -12,13 +12,13 @@ typedef struct operators
 	int (*f)(va_list);
 } ops_t;
 
-int _printChar(va_list);
-int _printStr(va_list);
-int _printPercent(va_list);
+int print_char(va_list);
+int print_str(va_list);
+int print_percent(va_list);
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _printInteger(va_list list);
-int _printDeci(va_list list);
-int print_num(va_list list);
+int print_integer(va_list list);
+int print_decimal(va_list list);
+int print_number(va_list list);
 #endif
