@@ -44,3 +44,31 @@ int _printPercent(__attribute__((unused))va_list list)
 	_putchar('%');
 	return (1);
 }
+
+/**
+* _printInteger - prints integer to stdout
+* @list: integer printed
+*
+* Return: number of integers  printed.
+*/
+int _printInteger(va_list list)
+{
+	int num_length;
+
+	num_length = print_num(list);
+	return (num_length);
+}
+
+/**
+* _printDeci - prints decimal to the stdout
+* @list: decimal printed
+*
+* Return: number of decimals printed
+*/
+int _printDeci(va_list list)
+{
+	int num_length;
+
+	num_length = print_num(list);
+	return (num_length);
+}

@@ -14,8 +14,11 @@ typedef struct operators
 
 int _printChar(va_list);
 int _printStr(va_list);
-int _printPercent();
+int _printPercent(va_list);
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int _printInteger(va_list list);
+int _printDeci(va_list list);
+int print_num(va_list list);
 #endif
