@@ -17,6 +17,7 @@ int print_str(va_list);
 int print_percent(va_list);
 
 int _printf(const char *format, ...);
+int process(const char *format, ops_t func_list[], va_list list);
 int _putchar(char c);
 int print_integer(va_list list);
 int print_decimal(va_list list);

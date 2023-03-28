@@ -10,7 +10,6 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
 	int print_count = 0;
 	va_list list;
 
@@ -27,27 +26,8 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
+	print_count = process(format, func_list, list);
 
-			while (func_list[i].spec)
-			{
-				if (*format == func_list[i].spec)
-					print_count += func_list[i].f(list);
-				i++;
-			}
-			i = 0;
-		}
-		else
-		{
-			_putchar(format[i]);
-			print_count++;
-		}
-		format++;
-	}
 	va_end(list);
 	return (print_count);
 }
