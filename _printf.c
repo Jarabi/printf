@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stddef.h>
 
 /**
  * _printf - produces output according to a format
@@ -19,7 +17,11 @@ int _printf(const char *format, ...)
 		{'%', print_percent},
 		{'i', print_integer},
 		{'d', print_decimal},
-		{'b', print_binary}
+		{'b', print_binary},
+		{'u', unsigned_integer},
+		{'o', print_octal},
+		{'x', print_hex},
+		{'X', print_heX}
 	};
 
 	if (format == NULL)
