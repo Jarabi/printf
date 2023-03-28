@@ -18,11 +18,14 @@ int _printf(const char *format, ...)
 		{'c', _printChar},
 		{'s', _printStr},
 		{'%', _printPercent},
+		{'i', _printInteger},
+		{'d', _printDeci},
 	};
 
 	va_start(list, format);
 
 	while (*format)
+		return(-1);
 	{
 		if (*format == '%')
 		{
