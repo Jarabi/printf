@@ -9,11 +9,11 @@
  */
 unsigned int base_len(unsigned int num, int base)
 {
-        unsigned int i;
+	unsigned int i;
 
-        for (i = 0; num > 0; i++)
-                num /= base;
-        return (i);
+	for (i = 0; num > 0; i++)
+		num /= base;
+	return (i);
 }
 
 /**
@@ -24,30 +24,30 @@ unsigned int base_len(unsigned int num, int base)
  */
 char *rev_string(char *s)
 {
-        unsigned int len = 0, i;
-        char *dest, temp;
+	unsigned int len = 0, i;
+	char *dest, temp;
 
-        /* get length of s */
-        while (s[len] != '\0')
-                len++;
+	/* get length of s */
+	while (s[len] != '\0')
+		len++;
 
-        /* allocate memory for dest */
-        dest = malloc(sizeof(char) * (len + 1));
+	/* allocate memory for dest */
+	dest = malloc(sizeof(char) * (len + 1));
 
-        if (dest == NULL)
-                return (NULL);
+	if (dest == NULL)
+		return (NULL);
 
-        /* copy s to dest */
-        _memcpy(dest, s, len);
+	/* copy s to dest */
+	_memcpy(dest, s, len);
 
-        /* reverse string */
-        for (i = 0; i < len; i++, len--)
-        {
-                temp = dest[len -1];
-                dest[len - 1] = dest[i];
-                dest[i] = temp;
-        }
-        return (dest);
+	/* reverse string */
+	for (i = 0; i < len; i++, len--)
+	{
+		temp = dest[len - 1];
+		dest[len - 1] = dest[i];
+		dest[i] = temp;
+	}
+	return (dest);
 }
 
 /**
